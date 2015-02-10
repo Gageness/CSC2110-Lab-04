@@ -60,6 +60,12 @@ DoubleNode<T>* CircularList<T>::find(int index)
    //complete the distance calculations below
    //loc_pos is the index that loc currently points to
    //index is the requested index
+   
+   //dist_next ---- positive
+   //dist_prev ---- negative ---- use abs() to find positive and compare with next to see shortest length
+   
+   dist_next = (sze - loc_pos) + index;
+   dist_prev = -(loc_pos - index);
  
    if (index >= loc_pos)
    {
