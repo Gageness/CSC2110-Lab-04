@@ -63,8 +63,8 @@ DoubleNode<T>* CircularList<T>::find(int index)
    
    if (index >= loc_pos)
    {
-		        //distance using the bridge (prev refs, negative)
-		        //distance without the bridge (next refs, positive)  
+		dist_next = index - loc_pos;             //distance using the bridge (prev refs, negative)
+		dist_prev = -((sze - index)	+ loc_pos)	 //distance without the bridge (next refs, positive)  
    }
    else
    {
@@ -75,6 +75,16 @@ DoubleNode<T>* CircularList<T>::find(int index)
    //DO THIS which distance is smaller?
    //find the minimum distance using absolute value
    //set min_dist to the smaller value, keeping the sign
+   if (abs(dist_next) < abs(dist_prev)) {
+   
+		min_dist = dist_next;
+   
+   }
+   else if (abs(dist_next) > abs(dist_prev)) {
+   
+		min_dist = dist_prev;
+   
+   }
 
 
 
